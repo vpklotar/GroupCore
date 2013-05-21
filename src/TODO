@@ -1,0 +1,4 @@
+TODO:
+    Change vault to pure permissions management
+    Implements core functions for permissions such as GetPrefix(Player p), GetSuffix(Player p) and so on...
+    
