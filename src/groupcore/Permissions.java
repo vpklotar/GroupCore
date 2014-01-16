@@ -22,20 +22,18 @@ public class Permissions {
     }
     
     public boolean Has(Player p, String node) {
-        if("PermissionsEx".equals(using)){
-            return this.manager.pex.has(p, node);
-        }else if("Permissions".equals(using)){
-            return this.manager.perm.has(p, node);
+        if(null != using)switch (using) {
+            case "PermissionsEx":
+                return this.manager.pex.has(p, node);
         }
         
-        return p.isOp();
+        return p.isOp(); // In case it actualy gets here it should defaut to if the player is op
     }
     
     public String GetPrefix(Player p){
-        if("PermissionsEx".equals(using)){
-            return this.manager.pex.getUser(p).getPrefix();
-        }else if("Permissions".equals(using)){
-            return this.manager.perm.getGroupPrefix(this.manager.perm.getPrimaryGroup(p.getPlayer().getName(), p.getPlayer().getWorld().getName()), p.getWorld().getName());
+        if(null != using)switch (using) {
+            case "PermissionsEx":
+                return this.manager.pex.getUser(p).getPrefix();
         }
         
         return "";

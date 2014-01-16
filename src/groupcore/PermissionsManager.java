@@ -16,7 +16,6 @@ import ru.tehkode.permissions.bukkit.PermissionsEx;
 public class PermissionsManager {
     private Core core;
     public PermissionManager pex = null;
-    public com.nijiko.permissions.PermissionHandler perm = null;
     private String Using = "";
     public String Using(){
         return this.Using;
@@ -32,7 +31,6 @@ public class PermissionsManager {
             this.core.info("No permissions system found! Using OP flags!");
         }
         
-        
         this.overlay = new Permissions(this);
     }
     
@@ -43,12 +41,6 @@ public class PermissionsManager {
             this.pex = PermissionsEx.getPermissionManager();
             if(pex != null){
                 this.Using = "PermissionsEx";
-                return true;
-            }
-        }else if(this.PluginEnabled("Permissions")){
-            this.perm = ((com.nijikokun.bukkit.Permissions.Permissions) this.core.getServer().getPluginManager().getPlugin("Permissions")).getHandler();
-            if(this.perm != null){
-                this.Using = "Permissions";
                 return true;
             }
         }
